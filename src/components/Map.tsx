@@ -8,7 +8,7 @@ import {
   useMap,
   ZoomControl,
 } from "react-leaflet";
-import schoolData from "@/lib/json/schools.json";
+// import schoolData from "@/lib/json/schools.json";
 
 type MapLocation = { id: string } & { name: string } & {
   site: string;
@@ -19,9 +19,25 @@ type MapProps = {
   locations: MapLocation[];
 };
 
-const SelectedLocation = ({ center }: { center: LatLngLiteral }) => {
+const SelectedLocation = ({
+  zoomLevel = 20,
+  center,
+}: {
+  zoomLevel?: number;
+  center: LatLngLiteral;
+}) => {
   const map = useMap();
-  map.panTo(center, { animate: true });
+
+  useEffect(() => {
+    if (!map) return;
+
+    map.panTo(center, { animate: true });
+
+    setTimeout(() => {
+      map.setZoom(zoomLevel);
+    }, 300);
+  }, [center, zoomLevel, map]);
+
   return null;
 };
 
@@ -30,10 +46,10 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
     MapLocation | undefined
   >();
   const [userLocation, setUserLocation] = useState<LatLngLiteral | null>(null);
-  const [searchQuery, setSearchQuery] = useState(""); // 使用者輸入的地址
+  const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<LatLngLiteral | null>(
     null
-  ); // 搜尋後的座標
+  );
 
   const mapMarkIcon = icon({
     iconUrl: "map-marker.png",
@@ -46,6 +62,10 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
   const userIcon = icon({
     iconUrl: "user-location.png",
     iconSize: [45, 45],
+  });
+  const mapSearchIcon = icon({
+    iconUrl: "search-location.png",
+    iconSize: [57, 64],
   });
 
   const renderMarks = () => {
@@ -68,19 +88,20 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
     ));
   };
 
-  // 📌【搜尋地名/地址】
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
     try {
-      const result = schoolData.find(
-        (school) =>
-          school.name.includes(searchQuery) || school.site.includes(searchQuery)
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+          searchQuery
+        )}`
       );
-
-      if (result) {
-        setSearchResults({ lat: result.lat, lng: result.lng });
+      const data = await response.json();
+      if (data.length > 0) {
+        const { lat, lon } = data[0];
+        setSearchResults({ lat: parseFloat(lat), lng: parseFloat(lon) });
       } else {
-        alert("找不到該學校，請嘗試其他名稱");
+        alert("找不到該位置，請嘗試其他名稱");
       }
     } catch (error) {
       console.error("搜尋發生錯誤:", error);
@@ -133,11 +154,11 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
         attributionControl={false}
         style={{ width: "100%", height: "100%" }}
       >
-        <TileLayer url="http://mt0.google.com/vt/lyrs=m&hl=zh-TW&x={x}&y={y}&z={z}" />
+        <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {/* 移動到搜尋結果 */}
         {searchResults && <SelectedLocation center={searchResults} />}
         {searchResults && (
-          <Marker position={searchResults} icon={mapMarkActiveIcon} />
+          <Marker position={searchResults} icon={mapSearchIcon} />
         )}
         {/* 選中的標記，將地圖移動過去 */}
         {selectedLocation && <SelectedLocation center={selectedLocation} />}
