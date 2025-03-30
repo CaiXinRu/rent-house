@@ -125,7 +125,6 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
   }, []);
 
   const defaultCenter: LatLngLiteral = { lat: 23.5, lng: 120 };
-  console.log(userLocation);
 
   return (
     <div className="w-full h-screen relative overflow-hidden">
@@ -143,6 +142,9 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
         >
           搜尋
         </button>
+        {selectedLocation && (
+          <div className="bg-blue-500 w-full">{selectedLocation.name}</div>
+        )}
       </div>
 
       <MapContainer
