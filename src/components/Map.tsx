@@ -151,7 +151,7 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
       <div className="absolute top-4 left-4 transform bg-neutral-700 shadow-lg rounded-lg ring-2 ring-neutral-500 p-3 z-[999] flex gap-2">
         <input
           type="text"
-          className="rounded p-2 w-60 text-neutral-100 ring-2 ring-neutral-500 focus:outline-none"
+          className="rounded p-2 w-60 bg-neutral-800 text-neutral-100 ring-2 ring-neutral-500 focus:outline-none"
           placeholder="輸入地名或地址"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
