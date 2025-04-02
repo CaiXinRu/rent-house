@@ -151,7 +151,7 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
       <div className="absolute top-4 left-4 transform bg-neutral-700 shadow-lg rounded-lg ring-2 ring-neutral-500 p-3 z-[999] flex gap-2">
         <input
           type="text"
-          className="rounded p-2 w-60 text-neutral-700 ring-2 ring-neutral-500 focus:outline-none"
+          className="rounded p-2 w-60 text-neutral-100 ring-2 ring-neutral-500 focus:outline-none"
           placeholder="輸入地名或地址"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -159,7 +159,6 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               handleSearch();
-              inputRef.current?.blur();
             }
           }}
         />
@@ -176,10 +175,10 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
 
       {/* 顯示 loading 畫面 */}
       {loading && (
-        <div className="absolute top-0 left-0 w-full h-full bg-neutral-500 bg-opacity-50 flex items-center justify-center z-[1000]">
-          <div className="w-full max-w-xl z-[1111]">
+        <div className="absolute top-0 left-0 w-full h-full bg-neutral-500 bg-opacity-55 backdrop-blur-sm flex items-center justify-center z-[1000]">
+          <div className="w-full max-w-xl bg-neutral-300 p-4 rounded-lg shadow-lg">
             <Progress value={progress} max={100} />
-            <div className="text-neutral-50 text-xl mt-4 text-center">
+            <div className="text-neutral-700 text-xl mt-4 text-center">
               搜尋中... {progress}%
             </div>
           </div>
