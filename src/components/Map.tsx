@@ -1,6 +1,6 @@
 import { icon, LatLngLiteral } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   MapContainer,
   Marker,
@@ -8,6 +8,7 @@ import {
   useMap,
   ZoomControl,
 } from "react-leaflet";
+import { Progress } from "./ui/progress";
 // import schoolData from "@/lib/json/schools.json";
 
 type MapLocation = { id: string } & { name: string } & {
@@ -42,6 +43,7 @@ const SelectedLocation = ({
 };
 
 export const Map: React.FC<MapProps> = ({ locations }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const [selectedLocation, setSelectedLocation] = useState<
     MapLocation | undefined
   >();
@@ -50,6 +52,8 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
   const [searchResults, setSearchResults] = useState<LatLngLiteral | null>(
     null
   );
+  const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const mapMarkIcon = icon({
     iconUrl: "map-marker.png",
@@ -90,21 +94,33 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
 
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
+
+    setLoading(true);
+    setProgress(50);
+
     try {
       const response = await fetch(
         `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
           searchQuery
         )}`
       );
+
+      setProgress(80);
+
       const data = await response.json();
       if (data.length > 0) {
         const { lat, lon } = data[0];
         setSearchResults({ lat: parseFloat(lat), lng: parseFloat(lon) });
+        setProgress(90);
       } else {
         alert("找不到該位置，請嘗試其他名稱");
+        setProgress(90);
       }
     } catch (error) {
       console.error("搜尋發生錯誤:", error);
+      setProgress(90);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -124,20 +140,31 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
     }
   }, []);
 
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
   const defaultCenter: LatLngLiteral = { lat: 23.5, lng: 120 };
 
   return (
     <div className="w-full h-screen relative overflow-hidden">
-      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-lg p-2 z-[999] flex gap-2">
+      <div className="absolute top-4 left-4 transform bg-neutral-700 shadow-lg rounded-lg ring-2 ring-neutral-500 p-3 z-[999] flex gap-2">
         <input
           type="text"
-          className="border border-gray-300 rounded p-2 w-72 text-slate-400"
+          className="rounded p-2 w-60 text-neutral-700 ring-2 ring-neutral-500 focus:outline-none"
           placeholder="輸入地名或地址"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          ref={inputRef}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearch();
+              inputRef.current?.blur();
+            }
+          }}
         />
         <button
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="bg-neutral-700 text-neutral-100 px-4 py-2 rounded hover:bg-neutral-800 active:ring-2 active:ring-neutral-500"
           onClick={handleSearch}
         >
           搜尋
@@ -146,6 +173,18 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
           <div className="bg-blue-500 w-full">{selectedLocation.name}</div>
         )}
       </div>
+
+      {/* 顯示 loading 畫面 */}
+      {loading && (
+        <div className="absolute top-0 left-0 w-full h-full bg-neutral-500 bg-opacity-50 flex items-center justify-center z-[1000]">
+          <div className="w-full max-w-xl z-[1111]">
+            <Progress value={progress} max={100} />
+            <div className="text-neutral-50 text-xl mt-4 text-center">
+              搜尋中... {progress}%
+            </div>
+          </div>
+        </div>
+      )}
 
       <MapContainer
         key={userLocation ? "user" : "default"}
