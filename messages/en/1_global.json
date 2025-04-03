@@ -5,6 +5,8 @@
   "web-description": "A platform for sharing and reviewing rental house experiences.",
   "locating": "Loacting...",
   "searching": "Searching...",
+  "search": "Search",
+  "search-placeholder": "Enter LandMark or Address",
   "searching-alert": "Location not found. Please try another name.",
   "searching-error": "Search error occurred."
 }
