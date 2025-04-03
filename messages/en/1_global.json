@@ -1,0 +1,10 @@
+{
+  "not-found-title": "Oops！404 not found",
+  "not-found-return": "return",
+  "web-title": "Rental Review Platform",
+  "web-description": "A platform for sharing and reviewing rental house experiences.",
+  "locating": "Loacting...",
+  "searching": "Searching...",
+  "searching-alert": "Location not found. Please try another name.",
+  "searching-error": "Search error occurred."
+}

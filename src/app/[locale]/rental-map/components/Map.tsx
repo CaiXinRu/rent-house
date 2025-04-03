@@ -1,5 +1,7 @@
+import { Progress } from "@/components/ui/progress";
 import { icon, LatLngLiteral } from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { useTranslations } from "next-intl";
 import React, { useEffect, useRef, useState } from "react";
 import {
   MapContainer,
@@ -8,7 +10,6 @@ import {
   useMap,
   ZoomControl,
 } from "react-leaflet";
-import { Progress } from "./ui/progress";
 // import schoolData from "@/lib/json/schools.json";
 
 type MapLocation = { id: string } & { name: string } & {
@@ -43,6 +44,7 @@ const SelectedLocation = ({
 };
 
 export const Map: React.FC<MapProps> = ({ locations }) => {
+  const t = useTranslations();
   const inputRef = useRef<HTMLInputElement>(null);
   const [selectedLocation, setSelectedLocation] = useState<
     MapLocation | undefined
@@ -57,19 +59,19 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
   const [progress, setProgress] = useState(0);
 
   const mapMarkIcon = icon({
-    iconUrl: "map-marker.png",
+    iconUrl: "/map-marker.png",
     iconSize: [47, 55],
   });
   const mapMarkActiveIcon = icon({
-    iconUrl: "active-map-marker.png",
+    iconUrl: "/active-map-marker.png",
     iconSize: [57, 64],
   });
   const userIcon = icon({
-    iconUrl: "user-location.png",
+    iconUrl: "/user-location.png",
     iconSize: [45, 45],
   });
   const mapSearchIcon = icon({
-    iconUrl: "search-location.png",
+    iconUrl: "/search-location.png",
     iconSize: [57, 64],
   });
 
@@ -114,11 +116,11 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
         setSearchResults({ lat: parseFloat(lat), lng: parseFloat(lon) });
         setProgress(90);
       } else {
-        alert("找不到該位置，請嘗試其他名稱");
+        alert(`${t("searching-alert")}`);
         setProgress(90);
       }
     } catch (error) {
-      console.error("搜尋發生錯誤:", error);
+      console.error(`${t("searching-alert")}:`, error);
       setProgress(90);
     } finally {
       setSearching(false);
@@ -187,7 +189,7 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
           <div className="w-full max-w-xl bg-neutral-300 p-4 rounded-lg shadow-lg">
             <Progress value={progress} max={100} />
             <div className="text-neutral-700 text-xl mt-4 text-center">
-              搜尋中... {progress}%
+              {t("searching")} {progress}%
             </div>
           </div>
         </div>
@@ -198,7 +200,7 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
           <div className="w-full max-w-xl bg-neutral-300 p-4 rounded-lg shadow-lg">
             <Progress value={progress} max={100} />
             <div className="text-neutral-700 text-xl mt-4 text-center">
-              定位中... {progress}%
+              {t("locating")} {progress}%
             </div>
           </div>
         </div>

@@ -1,0 +1,10 @@
+{
+  "not-found-title": "哇哩咧！404 找不到頁面",
+  "not-found-return": "返回",
+  "web-title": "租屋評論平台",
+  "web-description": "一個用於分享和評論租屋經驗的平台。",
+  "locating": "定位中...",
+  "searching": "搜尋中...",
+  "searching-alert": "找不到該位置，請嘗試其他名稱。",
+  "searching-error": "搜尋發生錯誤"
+}
