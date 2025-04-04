@@ -1,8 +1,9 @@
+import { LatLngLiteral } from "leaflet";
 import { useTranslations } from "next-intl";
 import { useState, useRef } from "react";
 
 type SearchBarProps = {
-  onSearch: (result: { lat: number; lng: number } | null) => void;
+  onSearch: (result: LatLngLiteral | null) => void;
   setIsLoading: (loading: boolean) => void;
   setProgress: (progress: number) => void;
 };

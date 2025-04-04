@@ -2,16 +2,11 @@ import { icon, LatLngLiteral } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
-import {
-  MapContainer,
-  Marker,
-  TileLayer,
-  useMap,
-  ZoomControl,
-} from "react-leaflet";
+import { MapContainer, Marker, TileLayer, ZoomControl } from "react-leaflet";
 import SearchBar from "./SearchBar";
 import LocationMarkers from "./LocationMarkers";
 import LoadingOverlay from "./LoadingOverlay";
+import SelectedLocation from "./SelectedLocation";
 
 type MapLocation = {
   id: string;
@@ -23,37 +18,26 @@ type MapProps = {
   locations: MapLocation[];
 };
 
-const SelectedLocation = ({
-  center,
-  zoomLevel = 20,
-}: {
-  center: LatLngLiteral;
-  zoomLevel?: number;
-}) => {
-  const map = useMap();
-
-  useEffect(() => {
-    if (!map || !center) return;
-    console.log(center);
-    map.setView(center, zoomLevel, { animate: true });
-  }, [center, zoomLevel, map]);
-
-  return null;
-};
-
 export const Map: React.FC<MapProps> = ({ locations }) => {
   const t = useTranslations();
   const [selectedLocation, setSelectedLocation] = useState<
     MapLocation | undefined
   >();
   const [userLocation, setUserLocation] = useState<LatLngLiteral | null>(null);
-  const [searchResults, setSearchResults] = useState<LatLngLiteral | null>(
-    null
-  );
+  const [searchResults, setSearchResults] = useState<{
+    result: LatLngLiteral;
+    timestamp: number;
+  } | null>(null);
   const [progress, setProgress] = useState(0);
   const [searching, setSearching] = useState(false);
   const [locating, setLocating] = useState(false);
-  console.log(selectedLocation);
+
+  const handleSearchClick = (result: LatLngLiteral | null) => {
+    setSelectedLocation(undefined);
+    if (result) {
+      setSearchResults({ result, timestamp: Date.now() });
+    }
+  };
 
   useEffect(() => {
     setLocating(true);
@@ -83,7 +67,7 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
   return (
     <div className="w-full h-screen relative overflow-hidden">
       <SearchBar
-        onSearch={setSearchResults}
+        onSearch={handleSearchClick}
         setIsLoading={setSearching}
         setProgress={setProgress}
       />
@@ -102,14 +86,24 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
         style={{ width: "100%", height: "100%" }}
       >
         <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        {searchResults && <SelectedLocation center={searchResults} />}
+        {searchResults && (
+          <SelectedLocation
+            key={searchResults.timestamp}
+            center={searchResults.result}
+          />
+        )}
         {searchResults && (
           <Marker
-            position={searchResults}
+            position={searchResults.result}
             icon={icon({ iconUrl: "/search-location.png", iconSize: [57, 64] })}
           />
         )}
-        {selectedLocation && <SelectedLocation center={selectedLocation} />}
+        {selectedLocation && (
+          <SelectedLocation
+            key={selectedLocation.id}
+            center={selectedLocation}
+          />
+        )}
         {userLocation && (
           <Marker
             position={userLocation}

@@ -10,7 +10,7 @@ type MapLocation = {
 type LocationMarkersProps = {
   locations: MapLocation[];
   selectedLocation?: MapLocation;
-  setSelectedLocation: (location: MapLocation) => void;
+  setSelectedLocation: (location: MapLocation | undefined) => void;
 };
 
 const mapMarkIcon = icon({
