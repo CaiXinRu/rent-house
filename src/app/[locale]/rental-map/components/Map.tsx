@@ -1,18 +1,13 @@
+import { MapLocation } from "@/ts/types";
 import { icon, LatLngLiteral } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
 import { MapContainer, Marker, TileLayer, ZoomControl } from "react-leaflet";
-import SearchBar from "./SearchBar";
-import LocationMarkers from "./LocationMarkers";
 import LoadingOverlay from "./LoadingOverlay";
+import LocationMarkers from "./LocationMarkers";
+import SearchBar from "./SearchBar";
 import SelectedLocation from "./SelectedLocation";
-
-type MapLocation = {
-  id: string;
-  name: string;
-  site: string;
-} & LatLngLiteral;
 
 type MapProps = {
   locations: MapLocation[];
@@ -104,6 +99,7 @@ export const Map: React.FC<MapProps> = ({ locations }) => {
             center={selectedLocation}
           />
         )}
+
         {userLocation && (
           <Marker
             position={userLocation}
