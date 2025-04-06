@@ -12,7 +12,7 @@ import { ThickArrowLeftIcon } from "@radix-ui/react-icons";
 import { icon } from "leaflet";
 import Image from "next/image";
 import { useState } from "react";
-import { Marker, Popup } from "react-leaflet";
+import { Marker } from "react-leaflet";
 
 type LocationMarkersProps = {
   locations: MapLocation[];
@@ -61,9 +61,7 @@ const LocationMarkers: React.FC<LocationMarkersProps> = ({
           eventHandlers={{
             click: () => handleMarkerClick(location),
           }}
-        >
-          <Popup>{location.name}</Popup>
-        </Marker>
+        ></Marker>
       ))}
 
       <Drawer
