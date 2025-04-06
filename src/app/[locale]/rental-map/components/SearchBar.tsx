@@ -1,6 +1,7 @@
 import { LatLngLiteral } from "leaflet";
 import { useTranslations } from "next-intl";
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
+import TriggerMenu from "./TriggerMenu";
 
 type SearchBarProps = {
   onSearch: (result: LatLngLiteral | null) => void;
@@ -14,8 +15,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
   setProgress,
 }) => {
   const t = useTranslations();
-  const [searchQuery, setSearchQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
@@ -67,6 +68,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       >
         {t("search")}
       </button>
+      <TriggerMenu />
     </div>
   );
 };
