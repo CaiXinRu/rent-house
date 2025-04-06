@@ -1,7 +1,7 @@
 {
   "name": "rent-house",
   "version": "1.0.0",
-  "build": "2",
+  "build": "3",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
