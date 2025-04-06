@@ -27,7 +27,7 @@ const CommentsDrawer: React.FC<CommentsDrawerProps> = ({
 }) => {
   return (
     <Drawer open={open} onOpenChange={onOpenChange} direction="left">
-      <DrawerContent className="w-96 p-2 z-[999] top-[3%] h-3/4">
+      <DrawerContent className="w-1/3 min-w-96 p-2 z-[999] top-[3%] h-3/4">
         <div className="top-3 left-3">
           <DrawerClose asChild>
             <button
