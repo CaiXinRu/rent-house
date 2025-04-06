@@ -8,9 +8,8 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { Comments, MapLocation } from "@/ts/types";
-import { ThickArrowLeftIcon } from "@radix-ui/react-icons";
+import { PersonIcon, ThickArrowLeftIcon } from "@radix-ui/react-icons";
 import { icon } from "leaflet";
-import Image from "next/image";
 import { useState } from "react";
 import { Marker } from "react-leaflet";
 
@@ -89,7 +88,7 @@ const LocationMarkers: React.FC<LocationMarkersProps> = ({
             </DrawerDescription>
           </DrawerHeader>
           <div className="px-2 w-full h-[72%]">
-            <div className="flex items-center justify-center w-full bg-neutral-700 text-neutral-100 rounded-lg">
+            <div className="flex items-center justify-center w-full bg-neutral-700 text-neutral-100 rounded-sm">
               <span>評論</span>
             </div>
             <div className="mt-2 w-full h-full border border-neutral-200 p-4 rounded-lg">
@@ -102,13 +101,12 @@ const LocationMarkers: React.FC<LocationMarkersProps> = ({
                         className="p-4 bg-neutral-100 rounded-md shadow-md break-words"
                       >
                         <div className="flex items-center space-x-3 mb-3">
-                          <Image
-                            src="https://picsum.photos/48/48"
-                            alt="User"
-                            width={48}
-                            height={48}
-                            className="rounded-full object-cover"
-                          />
+                          <div
+                            className="bg-neutral-700 text-neutral-100 rounded-full flex items-center justify-center
+                w-8 h-8"
+                          >
+                            <PersonIcon className="w-4 h-4" />
+                          </div>
                           <span className="text-sm font-semibold">
                             {comment.user}
                           </span>
