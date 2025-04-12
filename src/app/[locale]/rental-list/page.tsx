@@ -53,6 +53,7 @@
 // export default RentalListPage;
 "use client";
 
+import LocaleSwitcher from "@/components/global/LocalSwitcher";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -85,15 +86,7 @@ const Header = () => {
       </div>
 
       <div className="flex items-center space-x-4">
-        <Select>
-          <SelectTrigger className="w-24 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0">
-            <SelectValue placeholder="語言" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="zh">中文</SelectItem>
-            <SelectItem value="en">English</SelectItem>
-          </SelectContent>
-        </Select>
+        <LocaleSwitcher />
         <Button className="bg-neutral-700">
           <AvatarIcon className="w-5 h-5" />
         </Button>
