@@ -1,0 +1,332 @@
+<div id="container">
+                <div id="buy_header">
+            <div id="buy_header_nav">
+                <ul>
+                    <li class="nav_item current">
+                        <a href="https://www.sinyi.com.tw/rent/list/index.html">條件搜尋</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="https://www.sinyi.com.tw/rent/map/index.html">地圖搜尋</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="https://www.sinyi.com.tw/rent/mrt/index.html">捷運搜尋</a>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <!-- #buy_header_nav -->
+            <div id="search_bar" class="parse_url">
+                <ul>
+                    <li>
+                        <!-- .search_item -->
+                        <!-- .search_item_detail -->
+                    </li>
+                    <li>
+                        <!-- .search_item -->
+                        <!-- .search_item_detail -->
+                    </li>
+                    <li>
+                        <!-- .search_item -->
+                        <div id="search_price" class="search_item_detail">
+                            <div class="search_item_open"></div>
+                            <ul>
+                                <li style="display: inline-block;">
+                                    <table id="search_table_price" class="search_table selected">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <a href="/list/0-up-price/index.html">
+                                                        <div class="radio_btn"></div>不限</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="/list/5000-down-price/index.html">
+                                                        <div class="radio_btn"></div>5000以下</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="/list/5000-10000-price/index.html">
+                                                        <div class="radio_btn"></div>5000-10000</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="/list/10000-20000-price/index.html">
+                                                        <div class="radio_btn"></div>10000-20000</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="/list/20000-30000-price/index.html">
+                                                        <div class="radio_btn"></div>20000-30000</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="/list/30000-40000-price/index.html">
+                                                        <div class="radio_btn"></div>30000-40000</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="/list/40000-50000-price/index.html">
+                                                        <div class="radio_btn"></div>40000-50000</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="/list/50000-60000-price/index.html">
+                                                        <div class="radio_btn"></div>50000-60000</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="search_label">
+                                                        <div class="radio_btn"></div>
+                                                        <input type="text" class="min min_price" value="">元 -
+                                                        <input type="text" class="max max_price" value="">元
+                                                        <input type="button" value="送出" name="price">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>                            
+                                </li>
+                            </ul>                           
+                                                    </div>
+                        <!-- .search_item_detail -->
+                    </li>
+                    <li>
+                        <!-- .search_item -->
+                        <!-- .search_item_detail -->
+                    </li>
+                    <li>
+                        <!-- .search_item -->
+                        <!-- .search_item_detail -->
+                    </li>
+                    <li>
+                        <!-- .search_item -->
+                        <!-- .search_item_detail -->
+                    </li>
+                </ul>
+                <div id="search_keyword">
+                    <div id="clear_kw">
+                        <div class="icon i_clear_kw"></div>
+                    </div>
+                    <input type="text" class="input_keyword placeholder ui-autocomplete-input" placeholder="請輸入路街、社區、關鍵字或物件編號" autocomplete="off">
+                    <input type="button" class="button_keyword" value="租屋搜尋">
+                </div>
+                <div class="clear"></div>
+                <div class="clear"></div>
+            </div>
+            <!-- #search_bar -->
+        </div>
+                <!-- #buy_header -->
+        <div id="buy_container" class="left rwdsearch">
+            <div id="buy_content">
+                <h1 class="title">台北市租屋、租房、房屋出租物件</h1>
+                <h2 class="desc">信義房屋租屋網，提供租屋/租房/出租物件查詢，快速租屋/出租無負擔！完整房屋出租/承租仲介服務、房租/租金查詢，歡迎即刻預約諮詢、前往信義房屋門市了解！</h2>
+                ...
+                
+                <!-- #search_result_list -->
+                <!-- #search_info -->
+                
+                
+                                <div id="search_result_list" class="ddhouse">
+                    <div id="search_result_C333594" class="search_result_item">
+                        <a href="houseno/C333594" target="_blank">
+                            <div class="item_box item_box_left">
+                                <div class="item_imagebox">
+                                    <div class="item_recommend_bg"></div>
+                                    <div class="item_recommend">店長推薦</div>
+                                    <div class="item_img">
+                                        <img alt="捷運師大商圈精美大房 - C333594" title="捷運師大商圈精美大房 - C333594" src="https://res.sinyi.com.tw/rent/C333594/smallimg/A.JPG" onerror="loadImgFail(this)">
+                                    </div>
+                                    <div class="item_img_count">
+                                        <div class="icon i_img_cnt"></div>
+                                        <div class="img_count_txt">12</div>
+                                    </div>
+                                </div>
+                                <!-- .item_imagebox -->
+                                <span class="phone-building-name"></span>
+                                <!-- .item_imagepop-77 -->
+                            </div>
+                            <!-- .item_box item_box_left-->
+                            <div class="item_box item_box_right">
+                                <div class="item_titlebox">
+                                    <span class="item_title" alt="捷運師大商圈精美大房 - C333594" title="捷運師大商圈精美大房 - C333594">捷運師大商圈精美大房</span>
+                                    <span class="item_subtitle"><!-- 信義房屋品牌、台灣松下營造 --></span>
+                                </div>
+                                <!-- .item_titlebox -->
+                                <div class="item_detailbox">
+                                    <div class="detail_left left">
+                                        <div class="detail_line1">
+                                            <span><!-- 台北市士林區天母北路 --></span>
+                                        </div>
+                                        <div class="detail_line2">
+                                            <span><span class="num num-1">成屋</span></span>
+                                            <span>
+                                                <span class="num">15.79</span>坪                                            </span>
+                                            <span><span class="num">3/7</span>樓</span>
+
+                                            <span>
+                                                <span class="num">1房2廳1衛</span>                                            </span>
+                                        </div>
+                                        <div class="detail_line2">
+                                            <span class="num-ss">
+                                                <span class="num num-text">台北市大安區泰順街</span>
+                                            </span>
+                                        </div>
+                                        <span class="gray-date">更新日期：</span>
+                                        <span class="gray-date-1">2025/04/12 14:16</span>
+                                        <div class="detail_tagGroup">
+                                            <div class="detail_tag" data-tagid="16">近公園</div>
+                                            <div class="detail_tag" data-tagid="18">近市場</div>
+                                            <div class="detail_tag" data-tagid="19">近學校</div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                    <!-- .detail_left .left -->
+                                    <div class="detail_right right">
+                                        <div class="detail_price">
+                                            <div class="price_new"><span class="num">31,000</span>元/月</div>
+                                        </div>
+                                        <!-- .detail_price -->
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="detail_right-1 left">
+                                        <div class="detail_price">
+                                            <div class="price_new"><span class="num">31,000</span>元/月</div>
+                                        </div>
+                                        <div class="detail_line2">
+                                            <span style="border-left: 1px solid #ddd;">
+                                                <span class="big-chinese">成屋</span>
+                                            </span>
+                                            <span><span class="num">15.79</span>坪</span>
+                                            <span><span class="num">3/7</span>樓</span>
+                                        </div>
+                                        <div class="detail_line2"><span style="border-left: 1px solid #ddd;"><span><span class="num">1房2廳1衛</span></span></span></div>                                        <p class="phone-address">台北市大安區泰順街</p>
+                                        <!-- .detail_price -->
+                                        <div class="clear"></div>
+                                    </div>
+                                    <!-- .detail_right .right -->
+                                    <div class="clear"></div>
+                                </div>
+                                <!-- .item_detailbox -->
+                            </div>
+                            <!-- .item_box item_box_right-->
+                            <div class="clear"></div>
+                        </a>
+                        <div class="detail_btnGroup">
+                            <div class="detail_btn appoint_btn" onclick="addFavoriteHouse('C333594', 'add');"><a href="#" onclick="return false;">快速收藏</a></div>
+                        </div>
+                        <!-- .detail_btnGroup -->
+                    </div>
+                    <!-- .search_result_item -->
+                </div>
+                <!-- #search_result_list -->
+                                <div id="search_result_list" class="ddhouse">
+                    <div id="search_result_C327828" class="search_result_item">
+                        <a href="houseno/C327828" target="_blank">
+                            <div class="item_box item_box_left">
+                                <div class="item_imagebox">
+                                    <div class="item_recommend_bg"></div>
+                                    <div class="item_recommend">店長推薦</div>
+                                    <div class="item_img">
+                                        <img alt="忠泰大美附雙車位 - C327828" title="忠泰大美附雙車位 - C327828" src="https://res.sinyi.com.tw/rent/C327828/smallimg/A.JPG" onerror="loadImgFail(this)">
+                                    </div>
+                                    <div class="item_img_count">
+                                        <div class="icon i_img_cnt"></div>
+                                        <div class="img_count_txt">16</div>
+                                    </div>
+                                </div>
+                                <!-- .item_imagebox -->
+                                <span class="phone-building-name"></span>
+                                <!-- .item_imagepop-77 -->
+                            </div>
+                            <!-- .item_box item_box_left-->
+                            <div class="item_box item_box_right">
+                                <div class="item_titlebox">
+                                    <span class="item_title" alt="忠泰大美附雙車位 - C327828" title="忠泰大美附雙車位 - C327828">忠泰大美附雙車位</span>
+                                    <span class="item_subtitle"><!-- 信義房屋品牌、台灣松下營造 --></span>
+                                </div>
+                                <!-- .item_titlebox -->
+                                <div class="item_detailbox">
+                                    <div class="detail_left left">
+                                        <div class="detail_line1">
+                                            <span><!-- 台北市士林區天母北路 --></span>
+                                        </div>
+                                        <div class="detail_line2">
+                                            <span><span class="num num-1">成屋</span></span>
+                                            <span>
+                                                <span class="num">94.84</span>坪                                            </span>
+                                            <span><span class="num">5/15</span>樓</span>
+
+                                            <span>
+                                                <span class="num">4房2廳3衛2室</span>                                            </span>
+                                        </div>
+                                        <div class="detail_line2">
+                                            <span class="num-ss">
+                                                <span class="num num-text">台北市內湖區文湖街</span>
+                                            </span>
+                                        </div>
+                                        <span class="gray-date">更新日期：</span>
+                                        <span class="gray-date-1">2025/04/12 13:49</span>
+                                        <div class="detail_tagGroup">
+                                            <div class="detail_tag" data-tagid="16">近公園</div>
+                                            <div class="detail_tag" data-tagid="18">近市場</div>
+                                            <div class="detail_tag" data-tagid="19">近學校</div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                    <!-- .detail_left .left -->
+                                    <div class="detail_right right">
+                                        <div class="detail_price">
+                                            <div class="price_new"><span class="num">140,000</span>元/月</div>
+                                        </div>
+                                        <!-- .detail_price -->
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="detail_right-1 left">
+                                        <div class="detail_price">
+                                            <div class="price_new"><span class="num">140,000</span>元/月</div>
+                                        </div>
+                                        <div class="detail_line2">
+                                            <span style="border-left: 1px solid #ddd;">
+                                                <span class="big-chinese">成屋</span>
+                                            </span>
+                                            <span><span class="num">94.84</span>坪</span>
+                                            <span><span class="num">5/15</span>樓</span>
+                                        </div>
+                                        <div class="detail_line2"><span style="border-left: 1px solid #ddd;"><span><span class="num">4房2廳3衛2室</span></span></span></div>                                        <p class="phone-address">台北市內湖區文湖街</p>
+                                        <!-- .detail_price -->
+                                        <div class="clear"></div>
+                                    </div>
+                                    <!-- .detail_right .right -->
+                                    <div class="clear"></div>
+                                </div>
+                                <!-- .item_detailbox -->
+                            </div>
+                            <!-- .item_box item_box_right-->
+                            <div class="clear"></div>
+                        </a>
+                        <div class="detail_btnGroup">
+                            <div class="detail_btn appoint_btn" onclick="addFavoriteHouse('C327828', 'add');"><a href="#" onclick="return false;">快速收藏</a></div>
+                        </div>
+                        <!-- .detail_btnGroup -->
+                    </div>
+                    <!-- .search_result_item -->
+                </div>
+                <!-- #search_result_list -->
+                                <!-- #search_result_list end -->
+                
+                <div id="search_result_list_end" style="display:none"></div>
+                
+                <ul id="search_pagination"><li class="page current" data-url="1-page">1</li><li class="page" data-url="2-page">2</li><li class="page" data-url="3-page">3</li><li class="page" data-url="4-page">4</li><li class="page" data-url="5-page">5</li><li class="page" data-url="2-page">»</li><li class="page_dot">…</li><li class="page" data-url="66-page">66</li></ul>
+                <!-- #search_page -->
+            </div>
+            <!-- #buy_content -->
+        </div>
+    </div>
